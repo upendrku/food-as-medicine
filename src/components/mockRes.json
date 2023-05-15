@@ -1,0 +1,64 @@
+{
+  "categories": [
+    "Food Pantries",
+    "Community gardens",
+    "Medically tailored meals",
+    "Urban farm stands"
+  ],
+  "resources": {
+    "coalition": [
+      {
+        "contact": "Broderick Cason ",
+        "email": "205 Park Club Lane ",
+        "name": "Univera Healthcare "
+      }
+    ],
+    "external": [
+      {
+        "address": "809 Tonawanda St, Buffalo NY 14207 . ",
+        "contact": "",
+        "email": "",
+        "info": "Phone: (716) 875-1523 . Serving: 14207, parts of 14217 and parts of 14216. . When out of options, this charity may be able to help. The low income, needy, and homeless all use the center for their needs. . ",
+        "name": "Black Rock Riverside Emergency Food Pantry",
+        "tele": "(716) 875-1523",
+        "website": ""
+      },
+      {
+        "address": "263 Claremont Avenue, Buffalo NY 14223 . ",
+        "contact": "",
+        "email": "",
+        "info": "Phone: (716) 837-2544 . Serving: Town of Tonawanda, 14223. . Other services may include information on Emergency Food Assistance Program, WIC, and public benefits. . ",
+        "name": "Blessed Sacrament",
+        "tele": "(716) 837-2544",
+        "website": ""
+      },
+      {
+        "address": "350 Dewey Ave, Buffalo, NY 14214 . ",
+        "contact": "Luis",
+        "email": "",
+        "info": "The hours are : 9am - 12 pm Friday and Saturday . For coverage, the non-profit is only serving residents in zip codes 14214 and 14215 . Contact : Luis on (716)812-3461 . What is available includes dry, canned foods, meat, bread, cereals, diapers, infant formula may be offered from this free pantry in Erie County. . ",
+        "name": "Catholic Central Helping Hands Food Pantry",
+        "tele": "(716)812-3461",
+        "website": ""
+      },
+      {
+        "address": "2777 Bailey Avenue, Buffalo New York 14215 . ",
+        "contact": "",
+        "email": "",
+        "info": "(716) 332-4381 . Services support all regions of Erie County NY. Community action agencies can provide food, commodities, household supplies, and even help for bills and housing expenses. . ",
+        "name": "Edward Saunders Center",
+        "tele": "(716) 332-4381",
+        "website": ""
+      },
+      {
+        "address": "96 Jewett Parkway, Buffalo NY 14214-2322 . ",
+        "contact": "",
+        "email": "",
+        "info": "Tele: (716) 833-1151 . Provides food to North & East Buffalo, zip codes 14214 up to Amherst Street, and also the regions of 14215 and 14216. . ",
+        "name": "Episcopal Good Shepherd",
+        "tele": "(716) 833-1151",
+        "website": ""
+      }
+    ]
+  }
+}
