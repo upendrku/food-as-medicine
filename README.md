@@ -22,7 +22,7 @@ Step 2: Open a terminal at the folder for this repository <br />
 Step 3: Write npm install and hit enter <br />
 Step 4: Now after successfull installation of npm packages type npm start <br />
 Step 5: Open a browser and access http://localhost:8080/ <br />
-Step 6: To access the application on any other system on same network use the IPv4 url as shown in terminal instaed of http://localhost:8080/ <br />
+Step 6: To access the application on any other system on same network use the IPv4 url as shown in terminal instead of http://localhost:8080/ <br />
 
 ## Notes
 
