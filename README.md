@@ -16,27 +16,27 @@
 
 ## Installation
 
-💾 Steps to run the application:
-Step 1: Go to this url https://nodejs.org/en/download, download and install nodejs
-Step 2: Open a terminal at the folder for this repository
-Step 3: Write npm install and hit enter
-Step 4: Now after successfull installation of npm packages type npm start
-Step 5: Open a browser and access http://localhost:8080/
-Step 6: To access the application on any other system on same network use the IPv4 url as shown in terminal instaed of http://localhost:8080/
+💾 Steps to run the application: <br />
+Step 1: Go to this url https://nodejs.org/en/download, download and install nodejs <br />
+Step 2: Open a terminal at the folder for this repository <br />
+Step 3: Write npm install and hit enter <br />
+Step 4: Now after successfull installation of npm packages type npm start <br />
+Step 5: Open a browser and access http://localhost:8080/ <br />
+Step 6: To access the application on any other system on same network use the IPv4 url as shown in terminal instaed of http://localhost:8080/ <br />
 
 ## Notes
 
 To change any configuration for the application please use src/appConfig/config.json file.
 Below keys can be changed as per their respective usage:
 
-Key-------------------------------------------Usage
-backendUrl - The url to access the backend application.
-brand - The application brand name.
-landing_title_part1 - First line of the main title/ heading on landing page.
-landing_title_part2 - Second line of the main title/ heading on landing page.
-landing_title - Sub-heading of the main title/ heading on landing page.
-landing_subtitle - The text or introductory description on landing page.
-about_us_para - The text for "About Us" section.
+Key-------------------------------------------Usage <br />
+backendUrl - The url to access the backend application. <br />
+brand - The application brand name. <br />
+landing_title_part1 - First line of the main title/ heading on landing page. <br />
+landing_title_part2 - Second line of the main title/ heading on landing page. <br />
+landing_title - Sub-heading of the main title/ heading on landing page. <br />
+landing_subtitle - The text or introductory description on landing page. <br />
+about_us_para - The text for "About Us" section. <br />
 
 ## Usage
 
