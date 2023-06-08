@@ -152,7 +152,7 @@ body {
 }
 
 .landing-title {
-  font-size: 75px;
+  font-size: 55px;
   font-weight: 500;
   line-height: 75px;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
@@ -477,6 +477,7 @@ body {
 }
 
 .explore-btn {
+  margin-top: 20px;
   padding-left: 25px;
   padding-right: 25px;
 }
@@ -515,6 +516,15 @@ body {
   opacity: 0.1;
 }
 
+.card-text {
+  text-align: justify;
+}
+
+.img-border {
+  border-radius: 50%;
+  margin-bottom: 45px;
+}
+
 .avocado {
   overflow: inherit;
   max-height: 85vh;
@@ -526,6 +536,13 @@ body {
     animation: legs 1s infinite;
     transform-origin: bottom;
   }
+}
+
+.fam_pagination {
+  margin: auto;
+  width: 100%;
+  justify-content: center;
+  display: flex;
 }
 
 @keyframes legs {

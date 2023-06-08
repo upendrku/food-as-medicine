@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import geo2zip from 'geo2zip';
+import Pagination from 'react-bootstrap/Pagination';
 
 import { getCategories, getFAMResources } from '../utils/apiCalls';
 import Loading from './Loading';
@@ -17,8 +18,14 @@ const Search = () => {
   const [zip, setZip] = useState('' as any);
   const [agencyName, setAgencyName] = useState('' as any);
   const [range, setRange] = useState(3 as any);
-  const [famResources, setFAMResources] = useState({} as any);
+  const [coalitionFamResources, setCoalitionFAMResources] = useState([] as any);
+  const [allExternalFamResources, setAllExternalFAMResources] = useState(
+    [] as any
+  );
+  const [externalFamResources, setExternalFAMResources] = useState([] as any);
+  const [activePage, setAcivePage] = useState(1);
   const [showLoader, setLoadingStatus] = useState(false);
+  const [items, setItems] = useState([] as any);
 
   const setDefaultZip = () => {
     if (navigator.geolocation) {
@@ -37,12 +44,35 @@ const Search = () => {
     setDefaultZip();
 
     const getAllCategories = async () => {
-      const categories = await getCategories();
-      setCategories(categories);
+      const allCategories = await getCategories(); //  mock.categories;
+      setCategories([...categories, ...allCategories]);
     };
 
     getAllCategories();
   }, []);
+
+  useEffect(() => {
+    setExternalFAMResources([
+      ...allExternalFamResources?.slice((activePage - 1) * 8, activePage * 8),
+    ]);
+    let pages: any = [];
+    for (
+      let number = 1;
+      number <= Math.ceil(allExternalFamResources.length / 8);
+      number++
+    ) {
+      pages.push(
+        <Pagination.Item
+          key={number}
+          active={number === activePage}
+          onClick={() => changeActivePage(number)}
+        >
+          {number}
+        </Pagination.Item>
+      );
+    }
+    setItems([...pages]);
+  }, [activePage]);
 
   const redirectTo = (resourceLink: string) => {
     window.open(resourceLink, '_blank');
@@ -64,7 +94,14 @@ const Search = () => {
     setRange(event.target.value);
   };
 
+  const changeActivePage = (number: number) => {
+    setAcivePage(number);
+  };
+
   const searchNow = async () => {
+    // setCoalitionFAMResources([...[]]);
+    // setAllExternalFAMResources([...[]]);
+    // setExternalFAMResources([...[]]);
     setLoadingStatus(true);
     const famResources = await getFAMResources({
       category,
@@ -72,7 +109,30 @@ const Search = () => {
       agencyName,
       range,
     });
-    setFAMResources(famResources);
+    // setFAMResources(famResources);
+    setCoalitionFAMResources([...famResources?.coalition]);
+    setAllExternalFAMResources([...famResources?.external]);
+    setExternalFAMResources([
+      ...famResources?.external?.slice((activePage - 1) * 8, activePage * 8),
+    ]);
+    setAcivePage(1);
+    let pages: any = [];
+    for (
+      let number = 1;
+      number <= Math.ceil(famResources?.external?.length / 8);
+      number++
+    ) {
+      pages.push(
+        <Pagination.Item
+          key={number}
+          active={number === activePage}
+          onClick={() => changeActivePage(number)}
+        >
+          {number}
+        </Pagination.Item>
+      );
+    }
+    setItems([...pages]);
     setLoadingStatus(false);
   };
 
@@ -135,7 +195,7 @@ const Search = () => {
                 <input
                   type="range"
                   className="form-range"
-                  min="0"
+                  min="1"
                   max="20"
                   step="1"
                   id="customRange3"
@@ -161,107 +221,121 @@ const Search = () => {
               <Loading />
             ) : (
               <>
-                {famResources?.coalition?.length > 0 && (
+                {coalitionFamResources?.length > 0 && (
                   <div>
                     <h3 className="text-center">BNMC Resources</h3>
                     <hr />
                     <div className="resource-cards-section d-flex">
-                      {famResources?.coalition?.map((resource: any) => {
-                        return (
-                          <div className="card-container">
-                            <div className="card resource-card card-01">
-                              <img
-                                className="card-img-top"
-                                src="https://foodtank.com/wp-content/uploads/2017/11/ft-food-as-medicine-e1511806439818-770x462.jpg"
-                                alt="Card image cap"
-                              />
-                              <div className="card-body">
-                                <h4 className="card-title">{resource.name}</h4>
-                                {/* <p className="card-text">
+                      {coalitionFamResources?.map(
+                        (resource: any, index: number) => {
+                          return (
+                            <div className="card-container" key={index}>
+                              <div className="card resource-card card-01">
+                                <img
+                                  className="card-img-top"
+                                  src="https://foodtank.com/wp-content/uploads/2017/11/ft-food-as-medicine-e1511806439818-770x462.jpg"
+                                  alt="Card image cap"
+                                />
+                                <div className="card-body d-flex flex-column">
+                                  <h4 className="card-title">
+                                    {resource.name}
+                                  </h4>
+                                  {/* <p className="card-text">
                             Some quick example text to build on the card title
                             and make up the bulk of the card's content.
                           </p> */}
-                                <ListGroup className="list-group-flush">
-                                  <ListGroup.Item>
-                                    Contact: {resource.contact}
-                                  </ListGroup.Item>
-                                  {resource.tele && (
+                                  <ListGroup className="list-group-flush">
                                     <ListGroup.Item>
-                                      Tel.: {resource.tele}
+                                      Contact: {resource.contact}
                                     </ListGroup.Item>
+                                    {resource.tele && resource.tele !== '' && (
+                                      <ListGroup.Item>
+                                        Tel.: {resource.tele}
+                                      </ListGroup.Item>
+                                    )}
+                                    {resource.email &&
+                                      resource.email !== '' && (
+                                        <ListGroup.Item>
+                                          Email: {resource.email}
+                                        </ListGroup.Item>
+                                      )}
+                                  </ListGroup>
+                                  {resource.website && (
+                                    <div className="mt-auto text-center mb-3 mt-3">
+                                      <Button
+                                        className="btn-primary rounded-pill explore-btn"
+                                        onClick={() =>
+                                          redirectTo(resource.website)
+                                        }
+                                      >
+                                        Explore
+                                      </Button>
+                                    </div>
                                   )}
-                                  {resource.email && (
-                                    <ListGroup.Item>
-                                      Email: {resource.email}
-                                    </ListGroup.Item>
-                                  )}
-                                </ListGroup>
-                                {resource.website && (
-                                  <div className="text-center mb-3 mt-3">
-                                    <Button
-                                      className="btn-primary rounded-pill explore-btn"
-                                      onClick={() =>
-                                        redirectTo(resource.website)
-                                      }
-                                    >
-                                      Explore
-                                    </Button>
-                                  </div>
-                                )}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        }
+                      )}
                     </div>
                   </div>
                 )}
-                {famResources?.external?.length > 0 && (
+                {externalFamResources?.length > 0 && (
                   <div>
                     <h3 className="text-center">External Resources</h3>
                     <hr />
                     <div className="resource-cards-section d-flex">
-                      {famResources?.external?.map((resource: any) => {
-                        return (
-                          <div className="card-container">
-                            <div className="card resource-card card-01">
-                              <img
-                                className="card-img-top"
-                                src="https://a16z.com/wp-content/uploads/2020/11/Food-as-Medicine.jpg"
-                                alt="Card image cap"
-                              />
-                              <div className="card-body">
-                                <h4 className="card-title">{resource.name}</h4>
-                                <ListGroup className="list-group-flush">
-                                  <ListGroup.Item>
-                                    Address: {resource.address}
-                                  </ListGroup.Item>
-                                  <ListGroup.Item>
-                                    Tel.: {resource.tele}
-                                  </ListGroup.Item>
-                                  {resource.email && (
+                      {externalFamResources?.map(
+                        (resource: any, index: number) => {
+                          return (
+                            <div className="card-container" key={index}>
+                              <div className="card resource-card card-01">
+                                <img
+                                  className="card-img-top"
+                                  src="https://a16z.com/wp-content/uploads/2020/11/Food-as-Medicine.jpg"
+                                  alt="Card image cap"
+                                />
+                                <div className="card-body d-flex flex-column">
+                                  <h4 className="card-title">
+                                    {resource.name}
+                                  </h4>
+                                  <ListGroup className="list-group-flush">
                                     <ListGroup.Item>
-                                      Email: {resource.email}
+                                      Address: {resource.address}
                                     </ListGroup.Item>
+                                    {resource.tele && resource.tele !== '' && (
+                                      <ListGroup.Item>
+                                        Tel.: {resource.tele}
+                                      </ListGroup.Item>
+                                    )}
+                                    {resource.email && (
+                                      <ListGroup.Item>
+                                        Email: {resource.email}
+                                      </ListGroup.Item>
+                                    )}
+                                  </ListGroup>
+                                  {resource.website && (
+                                    <div className="mt-auto text-center mb-3 mt-3">
+                                      <Button
+                                        className="btn-primary rounded-pill explore-btn"
+                                        onClick={() =>
+                                          redirectTo(resource.website)
+                                        }
+                                      >
+                                        Explore
+                                      </Button>
+                                    </div>
                                   )}
-                                </ListGroup>
-                                {resource.website && (
-                                  <div className="text-center mb-3 mt-3">
-                                    <Button
-                                      className="btn-primary rounded-pill explore-btn"
-                                      onClick={() =>
-                                        redirectTo(resource.website)
-                                      }
-                                    >
-                                      Explore
-                                    </Button>
-                                  </div>
-                                )}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        }
+                      )}
+                      <div className="fam_pagination">
+                        <Pagination>{items}</Pagination>
+                      </div>
                     </div>
                   </div>
                 )}

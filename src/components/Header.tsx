@@ -28,7 +28,8 @@ const Header = () => {
       <Navbar collapseOnSelect expand="lg" variant="light">
         <div className="header">
           <Navbar.Brand onClick={navigateToHome}>
-            <img className="logo" src={logo} />
+            {/* <img className="logo" src={logo} /> */}
+            <h3>Food4Health</h3>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">

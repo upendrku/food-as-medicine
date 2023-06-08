@@ -15,20 +15,20 @@ const Footer = () => {
               change in individual lives, communities, and city.
             </p>
             <div className="icons">
-              <a href="#">
+              <a href="https://www.facebook.com/BnmcInnovates">
                 <i className="fa fa-facebook"></i>
               </a>
-              <a href="#">
+              <a href="https://twitter.com/BnmcInnovates">
                 <i className="fa fa-twitter"></i>
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/company/buffalo-niagara-medical-campus-inc./">
                 <i className="fa fa-linkedin"></i>
               </a>
-              <a href="#">
-                <i className="fa fa-google-plus"></i>
-              </a>
-              <a href="#">
+              <a href="https://www.instagram.com/bnmcinnovates/">
                 <i className="fa fa-instagram"></i>
+              </a>
+              <a href="https://talkingcities.libsyn.com/2023">
+                <i className="fa fa-headphones"></i>
               </a>
             </div>
           </div>
@@ -36,31 +36,28 @@ const Footer = () => {
             <div>
               <i className="fa fa-map-marker"></i>
               <p>
-                <span> Street name and number</span> City, Country
+                <span> 640 Ellicott Street</span> Buffalo NY 14203
               </p>
             </div>
             <div>
               <i className="fa fa-phone"></i>
-              <p> (+00) 0000 000 000</p>
+              <p> 716-854-2662</p>
             </div>
             <div>
               <i className="fa fa-envelope"></i>
               <p>
-                <a href="#"> office@company.com</a>
+                <a href="#"> healthycommunities@bnmc.org</a>
               </p>
             </div>
           </div>
           <div className="footer-right col-md-4 col-sm-6">
-            <h2>
-              {' '}
-              YouBe<span> Healthy</span>
-            </h2>
+            <h2> {/* YouBe<span> Healthy</span> */} Food4Health</h2>
             <p className="menu">
-              <a href="#"> Home</a> |<a href="#"> About</a> |
-              <a href="#"> Services</a> |<a href="#"> Portfolio</a> |
-              <a href="#"> News</a> |<a href="#"> Contact</a>
+              <a href="https://bnmc.org/"> Home</a> | &nbsp;
+              <a href="https://bnmc.org/about/"> About</a> | &nbsp;
+              <a href="https://bnmc.org/contact/"> Contact</a>
             </p>
-            <p className="name"> Company Name &copy; 2016</p>
+            <p className="name"> BNMC &copy; 2016</p>
           </div>
         </Container>
       </footer>

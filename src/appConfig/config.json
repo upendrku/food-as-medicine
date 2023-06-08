@@ -1,10 +1,10 @@
 {
-  "backendUrl": "http://192.168.99.46:5000",
-  "brand": "YouBe Healthy",
-  "landing_title_part1": "\"Unlock a Healthier You with Food",
-  "landing_title_part2": "- The Awesome Medicine\"",
-  "landing_title": "\"Unlock a Healthier You with Food - The Awesome Medicine\"",
-  "landing_subtitle": "Good nutrition is key to a healthy life. We provide medically tailored meals and food delivery accessible, reducing healthcare costs and improving health outcomes for all.",
+  "backendUrl": "http://192.168.1.38:5000",
+  "brand": "Food4Health",
+  "landing_title_part1": "\"Connecting community members and clinicians to ",
+  "landing_title_part2": "food and nutrition services\"",
+  "landing_title": "\"Connecting community members and clinicians to food and nutrition services\"",
+  "landing_subtitle": "We believe that addressing food as a social determinant of health through public health food and nutrition programs alongside community partners will bring us closer to achieving health equity.",
   "landing_button_text": "Let's Get Started",
   "sign_up": "Sign Up",
   "email_address": "Email address",
@@ -19,5 +19,5 @@
   "home": "Home",
   "search": "Search Vendors",
   "about_us": "About Us",
-  "about_us_para": "Our organization specializes in providing various health programs that aim to improve the well-being of our members. Among our initiatives is the implementation of the Medically Tailored Meals program, which was developed by the NYS DOH. Through our application of this program as an \"In Lieu of Services\" offering, we strive to reduce inpatient and emergency visits for members with specific conditions and ultimately enhance their health outcomes. Additionally, we have launched the FoodFirst program, which addresses food deserts by providing free grocery delivery to members' homes in identified areas."
+  "about_us_para": "At BNMC we plan, manage, and operate the Buffalo Niagara Medical Campus and its growing innovation district. We strive to be a place of health and well-being by working in community health, corporate wellness, local food systems, and food as medicine. We convene and connect everyone, so that together, we can make meaningful change in individual lives, in our communities, and in our City. Our aim is for this tool to improve access to community resources."
 }
